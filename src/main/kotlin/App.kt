@@ -1,4 +1,5 @@
 import kotlinx.css.*
+import models.Video
 import models.unwatchedVideos
 import models.watchedVideos
 import react.*
@@ -6,8 +7,12 @@ import react.dom.*
 import styled.css
 import styled.styledDiv
 
+external interface AppState : RState {
+    var currentVideo: Video?
+}
+
 @JsExport
-class App : RComponent<RProps, RState>() {
+class App : RComponent<RProps, AppState>() {
     override fun RBuilder.render() {
         // typesafe HTML goes here!
         h1 {
@@ -19,15 +24,24 @@ class App : RComponent<RProps, RState>() {
             }
             videoList {
                 videos = unwatchedVideos
+                selectedVideo = state.currentVideo
+                onSelectVideo = { video ->
+                    setState {
+                        currentVideo = video
+                    }
+                }
             }
             h3 {
                 +"Videos watched"
             }
             videoList {
                 videos = watchedVideos
-            }
-            p {
-                +"Tom Jerry: Mouseless development"
+                selectedVideo = state.currentVideo
+                onSelectVideo = { video ->
+                    setState {
+                        currentVideo = video
+                    }
+                }
             }
         }
 
