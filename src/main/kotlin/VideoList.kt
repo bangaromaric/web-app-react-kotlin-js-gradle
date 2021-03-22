@@ -1,7 +1,6 @@
 import kotlinx.browser.window
 import kotlinx.html.js.onClickFunction
 import models.Video
-import models.unwatchedVideos
 import react.*
 import react.dom.*
 
