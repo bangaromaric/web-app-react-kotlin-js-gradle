@@ -1,5 +1,6 @@
 plugins {
     id("org.jetbrains.kotlin.js") version "1.4.31"
+    kotlin("plugin.serialization") version "1.4.30"
 }
 
 group = "org.example"
@@ -24,6 +25,10 @@ kotlin {
 }
 
 dependencies {
+
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
+
 
     //React, React DOM + Wrappers (chapter 3)
     implementation("org.jetbrains:kotlin-react:17.0.1-pre.148-kotlin-1.4.21")

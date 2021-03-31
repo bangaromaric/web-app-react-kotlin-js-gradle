@@ -5,7 +5,7 @@ import models.Video
 import models.poke.Pokemon
 import react.*
 import react.dom.*
-
+/*
 external interface AppState : RState {
     var currentVideo: Video?
     var currentPokemon: Pokemon?
@@ -13,8 +13,21 @@ external interface AppState : RState {
     var watchedVideos: List<Video>
     var pokemonListe: List<Pokemon>
 }
-
-
+suspend fun fetchVideo(id: Int): Video {
+    val response = window
+        .fetch("https://my-json-server.typicode.com/kotlin-hands-on/kotlinconf-json/videos/$id")
+        .await()
+        .json()
+        .await()
+    return response as Video
+}
+suspend fun fetchVideos(): List<Video> = coroutineScope {
+    (1..25).map { id ->
+        async {
+            fetchVideo(id)
+        }
+    }.awaitAll()
+}
 
 suspend fun fetchPokemon(id: Int): Pokemon {
     val response = window
@@ -44,11 +57,11 @@ class App : RComponent<RProps, AppState>() {
 
         val mainScope = MainScope()
         mainScope.launch {
-
+            val videos = fetchVideos()
             val pokemon = fetchPokemons()
             setState {
                 pokemonListe = pokemon
-
+                unwatchedVideos = videos
             }
         }
     }
@@ -127,3 +140,4 @@ class App : RComponent<RProps, AppState>() {
 
 }
 
+*/
