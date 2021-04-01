@@ -1,23 +1,45 @@
+import kotlinx.browser.document
+import kotlinx.css.div
+import kotlinx.css.img
 import models.Video
 import models.poke.Pokemon
 import react.*
 import react.dom.*
+import kotlinx.html.js.*
+import kotlinx.html.onClick
+import org.w3c.dom.HTMLButtonElement
+
+//@JsModule("lodash")
+//external val lodash: dynamic
+//
+//external interface Lodash {
+//    fun <K,V> debounce(functionToDebounce: (K) -> V, debounceMillis: Int): (K) -> V
+//}
 
 @JsExport
 class PokemonList: RComponent<PokemonListProps, RState>() {
     override fun RBuilder.render() {
         for (pokemon in props.pokemon) {
-            div(classes = "col s2") {
+            div(classes = "col s3") {
                 div(classes = "card"){
                     div(classes = "card-image"){
-                        img(src = "${pokemon.sprites.front_default}"){}
+                        img(src = "${pokemon.sprites.other.dream_world.front_default}", classes = "materialboxed"){
+
+                            attrs {
+                                height="180"
+                                onClickFunction = {
+                                    println("button clicked: 8" )
+                                }
+                            }
+                        }
+
+                    }
+                    div(classes = "card-content"){
                         span(classes = "card-title blue-text"){
                             +"${pokemon.name}"
                         }
-                    }
-                    div(classes = "card-content"){
                         p{
-                            +" I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively."
+                            +" little markup to use effectively."
                         }
                     }
                 }
@@ -39,7 +61,28 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
 
 
         }
+
+//        val xyz: dynamic = js("window.xyz")
+//        println("xyz: $xyz")
+
+        document.addEventListener("DOMContentLoaded",{
+            val elems = document.querySelectorAll(".materialboxed")
+            println("button clicked: $elems" )
+//            val instances = M.Materialbox.init(elems)
+        })
+
+
+
+//        val button = document.getElementById("mybutton") as HTMLButtonElement
+//        button.addEventListener("click", {
+//            println("image clicked: " )
+//            document.title = "button was clicked"
+//        })
     }
+
+
+
+
 }
 
 external interface PokemonListProps: RProps {

@@ -46,8 +46,13 @@ dependencies {
     //Share Buttons (chapter 7)
     implementation(npm("react-share", "~4.2.1"))
 
+    //Materialize
+    implementation(npm("react-materialize", "~3.9.8"))
+
+
     //Coroutines (chapter 8)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
+
 }
 
 // Heroku Deployment (chapter 9)
