@@ -15,6 +15,7 @@ repositories {
 
 kotlin {
     js {
+        useCommonJs()
         browser {
             commonWebpackConfig {
                 cssSupport.enabled = true
@@ -47,7 +48,10 @@ dependencies {
     implementation(npm("react-share", "~4.2.1"))
 
     //Materialize
-    implementation(npm("react-materialize", "~3.9.8"))
+
+    implementation(npm("materialize-css", "~1.0.0"))
+
+    implementation(npm("jquery", "~3.5.1"))
 
 
     //Coroutines (chapter 8)

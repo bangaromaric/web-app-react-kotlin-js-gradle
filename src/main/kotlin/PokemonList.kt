@@ -9,16 +9,28 @@ import kotlinx.html.js.*
 import kotlinx.html.onClick
 import org.w3c.dom.HTMLButtonElement
 
-//@JsModule("lodash")
-//external val lodash: dynamic
-//
-//external interface Lodash {
-//    fun <K,V> debounce(functionToDebounce: (K) -> V, debounceMillis: Int): (K) -> V
-//}
+@JsName("$")
+@JsNonModule
+@JsModule("jquery")
+external fun jq(id: String): dynamic
+
+@JsNonModule
+@JsModule("materialize-css")
+external fun materialize(id: String): dynamic
 
 @JsExport
 class PokemonList: RComponent<PokemonListProps, RState>() {
+    override fun componentDidMount() {
+        println("monté: " )
+//       jq("document").ready(fun(){
+//            jq(".materialboxed").materialbox()
+//        })
+    }
+
+
+
     override fun RBuilder.render() {
+        println("rendered" )
         for (pokemon in props.pokemon) {
             div(classes = "col s3") {
                 div(classes = "card"){
@@ -27,9 +39,9 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
 
                             attrs {
                                 height="180"
-                                onClickFunction = {
-                                    println("button clicked: 8" )
-                                }
+//                                onClickFunction = {
+//                                    println("button clicked: 8" )
+//                                }
                             }
                         }
 
@@ -43,33 +55,38 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
                         }
                     }
                 }
-//                div(classes = "card-panel teal") {
-//                    p {
-//                        key = pokemon.id.toString()
-//                        attrs {
-//                            onClickFunction = {
-//                                props.onselectedPokemon(pokemon)
-//                            }
-//                        }
-//                        if (pokemon == props.selectedPokemon) {
-//                            +"▶ "
-//                        }
-//                        +"${pokemon.name}: "
-//                    }
-//                }
             }
-
-
         }
+        jq(".materialboxed").materialbox()
+//        jq("document").ready(fun(){
+//            jq(".materialboxed").materialbox()
+//        })
+
+
 
 //        val xyz: dynamic = js("window.xyz")
 //        println("xyz: $xyz")
 
-        document.addEventListener("DOMContentLoaded",{
-            val elems = document.querySelectorAll(".materialboxed")
-            println("button clicked: $elems" )
-//            val instances = M.Materialbox.init(elems)
-        })
+//        document.addEventListener("DOMContentLoaded",{
+//            val elems = document.querySelectorAll(".materialboxed")
+//            println("button clicked: $elems" )
+////            val instances = M.Materialbox.init(elems)
+//        })
+
+
+
+
+
+//        jq(".materialboxed").materialbox()
+//        jq(".materialboxed").materializeComp().materialbox()
+
+       /*
+        jq("button").click {
+            it.preventDefault()
+            console.log(it)
+        }
+        */
+
 
 
 
@@ -79,6 +96,7 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
 //            document.title = "button was clicked"
 //        })
     }
+
 
 
 
