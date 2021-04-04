@@ -4,7 +4,7 @@ import models.Video
 import models.poke.Pokemon
 import react.*
 import react.dom.*
-import librairy.materialize
+import materialbox.materialbox
 
 @JsName("$")
 @JsNonModule
@@ -62,11 +62,12 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
         }
 
 
+        materialbox()
 
 //        jq(".materialboxed").materialbox()
         jq("document").ready(fun(){
-            materialize()
-            jq(".materialboxed").materialize().materialbox()
+//            materialbox()
+//            jq(".materialboxed").materialbox()
         })
 
 

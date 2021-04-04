@@ -15,7 +15,7 @@ repositories {
 
 kotlin {
     js {
-        useCommonJs()
+//        useCommonJs()
         browser {
             commonWebpackConfig {
                 cssSupport.enabled = true
