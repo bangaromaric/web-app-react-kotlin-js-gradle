@@ -62,9 +62,8 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
         }
 
 
-        materialbox()
+       materialbox()
 
-//        jq(".materialboxed").materialbox()
         jq("document").ready(fun(){
 //            materialbox()
 //            jq(".materialboxed").materialbox()
