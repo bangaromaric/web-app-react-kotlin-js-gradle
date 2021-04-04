@@ -1,27 +1,29 @@
-import kotlinx.browser.document
-import kotlinx.css.div
-import kotlinx.css.img
+
+
 import models.Video
 import models.poke.Pokemon
 import react.*
 import react.dom.*
-import kotlinx.html.js.*
-import kotlinx.html.onClick
-import org.w3c.dom.HTMLButtonElement
+import librairy.materialize
 
 @JsName("$")
 @JsNonModule
 @JsModule("jquery")
 external fun jq(id: String): dynamic
 
-@JsNonModule
-@JsModule("materialize-css")
-external fun materialize(id: String): dynamic
+//@JsModule("librairy.materialize-css")
+//@JsNonModule
+//external val librairy.materialize: dynamic
+
+
+
+
 
 @JsExport
 class PokemonList: RComponent<PokemonListProps, RState>() {
     override fun componentDidMount() {
         println("monté: " )
+
 //       jq("document").ready(fun(){
 //            jq(".materialboxed").materialbox()
 //        })
@@ -31,6 +33,7 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
 
     override fun RBuilder.render() {
         println("rendered" )
+
         for (pokemon in props.pokemon) {
             div(classes = "col s3") {
                 div(classes = "card"){
@@ -57,10 +60,14 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
                 }
             }
         }
-        jq(".materialboxed").materialbox()
-//        jq("document").ready(fun(){
-//            jq(".materialboxed").materialbox()
-//        })
+
+
+
+//        jq(".materialboxed").materialbox()
+        jq("document").ready(fun(){
+            materialize()
+            jq(".materialboxed").materialize().materialbox()
+        })
 
 
 

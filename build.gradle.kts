@@ -48,7 +48,6 @@ dependencies {
     implementation(npm("react-share", "~4.2.1"))
 
     //Materialize
-
     implementation(npm("materialize-css", "~1.0.0"))
 
     implementation(npm("jquery", "~3.5.1"))
