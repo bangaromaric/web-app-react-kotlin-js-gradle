@@ -1,10 +1,10 @@
 
 
+import kotlinx.browser.document
 import models.Video
 import models.poke.Pokemon
 import react.*
 import react.dom.*
-import materialbox.materialbox
 
 @JsName("$")
 @JsNonModule
@@ -24,9 +24,28 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
     override fun componentDidMount() {
         println("monté: " )
 
-//       jq("document").ready(fun(){
-//            jq(".materialboxed").materialbox()
-//        })
+
+        jq("document").ready(fun(){
+            jq(".materialboxed").materialbox()
+        })
+        
+
+
+        document.addEventListener("DOMContentLoaded",{
+            val elems = document.querySelectorAll(".materialboxed")
+            println("button clicked: $elems" )
+//            val instances = M.Materialbox.init(elems)
+//            val instances = Mat.Materialbox.init(elems)
+        })
+
+//val mm = Mat()
+//        mm.materialbox()
+//        amaterialbox()
+
+
+
+
+
     }
 
 
@@ -64,9 +83,9 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
 
 //       materialbox()
 
-        jq("document").ready(fun(){
-            jq(".materialboxed").materialbox()
-        })
+//        jq("document").ready(fun(){
+//            jq(".materialboxed").materialbox()
+//        })
 
 
 

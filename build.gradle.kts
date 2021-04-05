@@ -14,6 +14,7 @@ repositories {
 }
 
 kotlin {
+    sourceSets["main"].kotlin.srcDir("src/main/external")
     js {
         useCommonJs()
         browser {
