@@ -25,25 +25,18 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
         println("monté: " )
 
 
-        jq("document").ready(fun(){
-            jq(".materialboxed").materialbox()
-        })
-        
+        val elems = document.querySelectorAll(".materialboxed")
+        val instances = M.Materialbox.init(elems) {}
 
 
-        document.addEventListener("DOMContentLoaded",{
-            val elems = document.querySelectorAll(".materialboxed")
-            println("button clicked: $elems" )
-//            val instances = M.Materialbox.init(elems)
-//            val instances = Mat.Materialbox.init(elems)
-        })
-
-//val mm = Mat()
-//        mm.materialbox()
-//        amaterialbox()
-
-
-
+//        document.addEventListener("DOMContentLoaded",{
+//            val elems = document.querySelectorAll(".materialboxed")
+//            val instances = M.Materialbox.init(elems){ }
+//
+////          val instance = M.Materialbox.getInstance(elems)
+//
+//
+//        })
 
 
     }
@@ -81,45 +74,8 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
         }
 
 
-//       materialbox()
-
-//        jq("document").ready(fun(){
-//            jq(".materialboxed").materialbox()
-//        })
 
 
-
-//        val xyz: dynamic = js("window.xyz")
-//        println("xyz: $xyz")
-
-//        document.addEventListener("DOMContentLoaded",{
-//            val elems = document.querySelectorAll(".materialboxed")
-//            println("button clicked: $elems" )
-////            val instances = M.Materialbox.init(elems)
-//        })
-
-
-
-
-
-//        jq(".materialboxed").materialbox()
-//        jq(".materialboxed").materializeComp().materialbox()
-
-       /*
-        jq("button").click {
-            it.preventDefault()
-            console.log(it)
-        }
-        */
-
-
-
-
-//        val button = document.getElementById("mybutton") as HTMLButtonElement
-//        button.addEventListener("click", {
-//            println("image clicked: " )
-//            document.title = "button was clicked"
-//        })
     }
 
 
