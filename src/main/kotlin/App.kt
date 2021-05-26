@@ -1,6 +1,8 @@
+import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.coroutines.*
 import kotlinx.css.*
+import lib.M
 import models.Video
 import models.poke.Pokemon
 import react.*
@@ -72,9 +74,10 @@ class App : RComponent<RProps, AppState>() {
                 }
             }
         }
-        h1 {
-            +"KotlinConf Explorer"
-        }
+//        h1 {
+//            +"KotlinConf Explorer"
+//        }
+        /*
         div {
             h3 {
                 +"Pokemons"
@@ -84,47 +87,49 @@ class App : RComponent<RProps, AppState>() {
             h3 {
                 +"Videos to watch"
             }
-            videoList {
-                videos = state.unwatchedVideos
-                selectedVideo = state.currentVideo
-                onSelectVideo = { video ->
-                    setState {
-                        currentVideo = video
-                    }
-                }
-            }
+//            videoList {
+//                videos = state.unwatchedVideos
+//                selectedVideo = state.currentVideo
+//                onSelectVideo = { video ->
+//                    setState {
+//                        currentVideo = video
+//                    }
+//                }
+//            }
             h3 {
                 +"Videos watched"
             }
-            videoList {
-                videos = state.watchedVideos
-                selectedVideo = state.currentVideo
-                onSelectVideo = { video ->
-                    setState {
-                        currentVideo = video
-                    }
-                }
-            }
+//            videoList {
+//                videos = state.watchedVideos
+//                selectedVideo = state.currentVideo
+//                onSelectVideo = { video ->
+//                    setState {
+//                        currentVideo = video
+//                    }
+//                }
+//            }
         }
-        state.currentVideo?.let { currentVideo ->
-            videoPlayer {
-                video = currentVideo
-                unwatchedVideo = currentVideo in state.unwatchedVideos
-                onWatchedButtonPressed = {
-                    if (video in state.unwatchedVideos) {
-                        setState {
-                            unwatchedVideos -= video
-                            watchedVideos += video
-                        }
-                    } else {
-                        setState {
-                            watchedVideos -= video
-                            unwatchedVideos += video
-                        }
-                    }
-                }
-            }
-        }
+
+         */
+//        state.currentVideo?.let { currentVideo ->
+//            videoPlayer {
+//                video = currentVideo
+//                unwatchedVideo = currentVideo in state.unwatchedVideos
+//                onWatchedButtonPressed = {
+//                    if (video in state.unwatchedVideos) {
+//                        setState {
+//                            unwatchedVideos -= video
+//                            watchedVideos += video
+//                        }
+//                    } else {
+//                        setState {
+//                            watchedVideos -= video
+//                            unwatchedVideos += video
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
 
 

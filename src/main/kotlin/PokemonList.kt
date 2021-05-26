@@ -1,6 +1,7 @@
 
 
 import kotlinx.browser.document
+import lib.M
 import models.Video
 import models.poke.Pokemon
 import react.*
@@ -24,19 +25,22 @@ class PokemonList: RComponent<PokemonListProps, RState>() {
     override fun componentDidMount() {
         println("monté: " )
 
+        document.addEventListener("load",{
+            val elems = document.querySelectorAll(".materialboxed")
+            val instances = M.Materialbox.init(elems){ }
+            instances.open()
+//          val instance = M.Materialbox.getInstance(elems)
 
-        val elems = document.querySelectorAll(".materialboxed")
-        val instances = M.Materialbox.init(elems) {}
+
+        })
+
+//
+//        val elems = document.querySelectorAll(".materialboxed")
+//        val instances = M.Materialbox.init(elems) {}
 
 
-//        document.addEventListener("DOMContentLoaded",{
-//            val elems = document.querySelectorAll(".materialboxed")
-//            val instances = M.Materialbox.init(elems){ }
-//
-////          val instance = M.Materialbox.getInstance(elems)
-//
-//
-//        })
+
+
 
 
     }
